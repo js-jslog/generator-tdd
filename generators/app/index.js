@@ -21,5 +21,9 @@ module.exports = class extends MyBase {
     this.copyTemplateFiles();
     this.config.save();
   }
+
+  install() {
+    this.npmInstall();
+  }
 };
 
