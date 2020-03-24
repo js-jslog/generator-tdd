@@ -1,5 +1,5 @@
 const Generator = require('yeoman-generator');
-const DotfilesGenerator = require('/home/developer/yeoman-generators/generator-dotfiles/generators/app/index.js');
+const DotfilesGenerator = require.resolve('/home/developer/yeoman-generators/generator-dotfiles/generators/app');
 
 const MyBase = class extends Generator {
   copyTemplateFiles() {
@@ -15,10 +15,7 @@ const MyBase = class extends Generator {
 
 module.exports = class extends MyBase {
   initializing() {
-    this.composeWith({
-      Generator: DotfilesGenerator,
-      path: require.resolve('/home/developer/yeoman-generators/generator-dotfiles/generators/app')
-    });
+    this.composeWith(DotfilesGenerator);
   };
 
   writing() {
