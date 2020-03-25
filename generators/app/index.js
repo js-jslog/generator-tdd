@@ -1,5 +1,5 @@
 const Generator = require('yeoman-generator');
-const DotfilesGenerator = require.resolve('/home/developer/yeoman-generators/generator-dotfiles/generators/app');
+const DotfilesGenerator = require.resolve('generator-dotfiles/generators/app');
 
 const MyBase = class extends Generator {
   copyTemplateFiles() {
