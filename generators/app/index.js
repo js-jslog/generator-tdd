@@ -20,7 +20,12 @@ const MyBase = class extends Generator {
         test: 'jest'
       },
       devDependencies: {
-        jest: '^24.7.1'
+        '@babel/core': '^7.9.0',
+        '@babel/preset-env': '^7.9.0',
+        '@babel/preset-typescript': '^7.9.0',
+        'babel-jest': '^25.2.6',
+        jest: '^24.7.1',
+        typescript: "^3.8.3"
       },
     };
     augmentPackageJson(packageJsonAugmentation, this.destinationPath('package.json'));
