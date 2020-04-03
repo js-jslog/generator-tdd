@@ -24,7 +24,7 @@ const MyBase = class extends Generator {
         '@babel/preset-env': '^7.9.0',
         '@babel/preset-typescript': '^7.9.0',
         'babel-jest': '^25.2.6',
-        jest: '^24.7.1',
+        jest: '^24.9.0',
         typescript: "^3.8.3"
       },
     };
