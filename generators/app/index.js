@@ -17,7 +17,8 @@ const MyBase = class extends Generator {
       name: 'tdd',
       description: 'A basic tdd project with typescript',
       scripts: {
-        test: 'jest'
+        test: 'jest',
+        install: 'npx ts-jest config:init',
       },
       devDependencies: {
         '@types/jest': '^25.2.1',
