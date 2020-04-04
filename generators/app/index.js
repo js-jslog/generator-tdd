@@ -15,7 +15,7 @@ const MyBase = class extends Generator {
   decoratePackageJsonBeforeInstall() {
     const packageJsonAugmentation = {
       name: 'tdd',
-      description: 'A basic tdd project',
+      description: 'A basic tdd project with typescript',
       scripts: {
         test: 'jest'
       },
