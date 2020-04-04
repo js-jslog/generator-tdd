@@ -1,6 +1,6 @@
-const index = require('./index');
+import i from './index';
 
 test('index contains an index function', () => {
-  expect(index).toBeDefined();
+  expect(i).toBeDefined();
 });
 
