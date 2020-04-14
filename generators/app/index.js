@@ -1,6 +1,4 @@
 const Generator = require('yeoman-generator');
-const DotfilesGenerator = require.resolve('generator-dotfiles/generators/app');
-const augmentPackageJson = require('generator-dotfiles/utilities/augmentPackageJson');
 
 const MyBase = class extends Generator {
   copyTemplateFiles() {
@@ -12,13 +10,13 @@ const MyBase = class extends Generator {
       this.destinationRoot()
     );
   };
-  decoratePackageJsonBeforeInstall() {
-    const packageJsonAugmentation = {
+  createPackageJson() {
+    const packageJson = {
       name: 'tdd',
       description: 'A basic tdd project with typescript',
       scripts: {
         test: 'jest',
-        install: 'npx ts-jest config:init',
+        postinstall: 'npx eslint --init && npx ts-jest config:init',
       },
       devDependencies: {
         '@types/jest': '^25.2.1',
@@ -28,22 +26,18 @@ const MyBase = class extends Generator {
         typescript: '^3.8.3'
       },
     };
-    augmentPackageJson(packageJsonAugmentation, this.destinationPath('package.json'));
+    this.fs.extendJSON(this.destinationPath('package.json'), packageJson);
   };
 };
 
 module.exports = class extends MyBase {
-  initializing() {
-    this.composeWith(DotfilesGenerator);
-  };
-
   writing() {
     this.copyTemplateFiles();
+    this.createPackageJson();
     this.config.save();
   };
 
   install() {
-    this.decoratePackageJsonBeforeInstall();
     this.npmInstall();
   };
 };
