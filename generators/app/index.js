@@ -16,7 +16,7 @@ const MyBase = class extends Generator {
       description: 'A basic tdd project with typescript',
       scripts: {
         test: 'jest',
-        postinstall: 'npx eslint --init && npx ts-jest config:init',
+        postinstall: 'eslint --init && ts-jest config:init',
       },
       devDependencies: {
         '@types/jest': '^25.2.1',
@@ -38,7 +38,7 @@ module.exports = class extends MyBase {
   };
 
   install() {
-    this.npmInstall();
+    this.yarnInstall();
   };
 };
 
