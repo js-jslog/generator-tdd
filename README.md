@@ -5,11 +5,11 @@ If the eslint configuration generator invites you to install dependencies which 
 
 Following completion, the following actions must be taken:
 
-- Remove the `postinstall` npm script from the generated package.json
-- Add 'jest' to the plugins section of the eslint configuration
-- You may or may not need to also add the folloing to the plugins section of the eslint configuration depending on your setup
-  - @typescript-eslint
-  - import
+- Add the following to the `plugins` section of the eslint config. Each may or may not be relevant depending on the config setup you have requested:
+  - 'jest'
+  - '@typescript-eslint'
+  - 'import'
+
 - Run `yarn install` just to be sure that any automatic `npm` installs haven't removed required dependencies
 - Run `yarn run test` and `yarn run lint` to make sure that things are working
   - The lint might fail depending on the config you've chosen but the test should pass. 
