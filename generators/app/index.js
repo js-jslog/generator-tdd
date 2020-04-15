@@ -8,10 +8,9 @@ const MyBase = class extends Generator {
       this.destinationRoot()
     );
     // Copy all non-dotfiles
-    // TODO: check whether this is the right way to use destinationRoot
     this.fs.copy(
       this.templatePath('**/*'),
-      `${this.destinationRoot()}/src/`
+      this.destinationPath('src/')
     );
   };
   createPackageJson() {
