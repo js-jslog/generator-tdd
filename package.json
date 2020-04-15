@@ -2,9 +2,6 @@
   "name": "generator-tdd",
   "version": "1.3.0",
   "description": "A Yeoman Generator to create a simple tdd project with typescript",
-  "scripts": {
-    "postinstall": "npm link generator-dotfiles"
-  },
   "files": [
     "generators"
   ],
