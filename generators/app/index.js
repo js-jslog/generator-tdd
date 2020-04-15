@@ -23,7 +23,6 @@ const MyBase = class extends Generator {
         'clear-jest': 'jest --clearCache',
         lint: 'tsc --noEmit && eslint \'./**\'',
         'fix-lint': 'eslint \'./**\' --fix',
-        postinstall: 'eslint --init && ts-jest config:init && tsc --init',
       },
       devDependencies: {
         '@types/jest': '^25.2.1',
@@ -52,6 +51,12 @@ module.exports = class extends MyBase {
 
   install() {
     this.yarnInstall();
+  };
+
+  end() {
+    this.spawnCommand('npx', ['eslint', '--init']);
+    this.spawnCommand('npx', ['ts-jest', 'config:init']);
+    this.spawnCommand('npx', ['tsc', '--init']);
   };
 };
 
